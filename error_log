@@ -1,0 +1,1 @@
+[02-Jan-2023 23:31:38 US/Eastern] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 2621440 bytes) in /home/commercialqr/public_html/application/vendor/composer/autoload_classmap.php on line 5839
