@@ -19,7 +19,7 @@ use App\Models\Wishlist;
 
 class PropertyController extends Controller {
     public function index() {
-        $pageTitle = "Add new property";
+        $pageTitle = "Add new Funding";
         $cities = City::orderBy('name', 'asc')->where('status', 1)->select('id', 'name')->with('location')->get();
         $propertyTypes = PropertyType::where('status', 1)->select('name', 'id')->get();
 
@@ -27,7 +27,7 @@ class PropertyController extends Controller {
     }
 
     public function listProperty() {
-        $pageTitle = "Properties";
+        $pageTitle = "Investment";
         $properties = Property::where('user_id', auth()->user()->id)->latest()->with('location', 'city', 'propertyInfo', 'propertyImage')->paginate(getPaginate(20));
 
         return view($this->activeTemplate . 'property.list', compact('properties', 'pageTitle'));
@@ -126,7 +126,7 @@ class PropertyController extends Controller {
 
     public function edit($id) {
 
-        $pageTitle = 'Edit Property';
+        $pageTitle = 'Edit Funding';
         $cities = City::orderBy('name', 'asc')->where('status', 1)->select('id', 'name')->with('location')->get();
         $propertyTypes = PropertyType::where('status', 1)->select('name', 'id')->get();
         $property = Property::findOrFail($id);

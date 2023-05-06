@@ -5,17 +5,17 @@
     <form action="{{route('user.property.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="dashboard_box pb-0">
-            <h4 class="title mb-25">@lang('Add new property')</h4>
+            <h4 class="title mb-25">@lang('Add new Investment')</h4>
             <div class="dashboard_body">
                 <div class="row">
                     <div class="login_wrapper">
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="form-group profile mb-15">
-                                    <label for="property_title">@lang('Property Title')</label>
+                                    <label for="property_title">@lang('Investment Title')</label>
                                     <div class="single-input">
                                         <input type="text" id="property_title" name="title"
-                                            placeholder="@lang('Property Title')" required>
+                                            placeholder="@lang('Investment Title')" required>
                                     </div>
                                 </div>
                             </div>
@@ -49,7 +49,7 @@
                             </div>
                             <div class="col-lg-6">
                                 <div class="nice_select_wrapper mb-15 style_1">
-                                    <p>@lang('Property type')</p>
+                                    <p>@lang('Investment type')</p>
                                     <select name="property_type" class="all_select">
                                         @foreach($propertyTypes as $propertyType)
                                         <option value="{{$propertyType->id}}">{{__($propertyType->name)}}</option>
@@ -84,7 +84,7 @@
 
                             <div class="col-lg-6">
                                 <div class="nice_select_wrapper mb-15 style_1">
-                                    <p>@lang('Property Purpose')</p>
+                                    <p>@lang('Investment Purpose')</p>
                                     <select name="type" class="all_select">
                                         <option value="1">@lang('For Rent')</option>
                                         <option value="2">@lang('For Sale')</option>
@@ -98,7 +98,7 @@
                                     <label for="property_title">@lang('Room')</label>
                                     <div class="single-input">
                                         <input type="number" id="property_title" name="room"
-                                            placeholder="@lang('Property Room')">
+                                            placeholder="@lang('Investment Room')">
                                     </div>
                                 </div>
                             </div>
@@ -107,7 +107,7 @@
                                     <label for="property_title">@lang('Kitchen')</label>
                                     <div class="single-input">
                                         <input type="number" id="property_title" name="kitchen"
-                                            placeholder="@lang('Property Kitchen')">
+                                            placeholder="@lang('Investment Kitchen')">
                                     </div>
                                 </div>
                             </div>
@@ -116,7 +116,7 @@
                                     <label for="property_title">@lang('Bathroom')</label>
                                     <div class="single-input">
                                         <input type="number" id="property_title" name="bathroom"
-                                            placeholder="@lang('Property Bathroom')">
+                                            placeholder="@lang('Investment Bathroom')">
                                     </div>
                                 </div>
                             </div>
@@ -125,7 +125,7 @@
                                     <label for="property_title">@lang('Unit')</label>
                                     <div class="single-input">
                                         <input type="number" id="property_title" name="unit"
-                                            placeholder="@lang('Property Unit')">
+                                            placeholder="@lang('Investment Unit')">
                                     </div>
                                 </div>
                             </div>
@@ -134,7 +134,7 @@
                                     <label for="property_title">@lang('Floor')</label>
                                     <div class="single-input">
                                         <input type="number" id="property_title" name="floor"
-                                            placeholder="@lang('Property Floor')">
+                                            placeholder="@lang('Investment Floor')">
                                     </div>
                                 </div>
                             </div>
@@ -143,7 +143,7 @@
                                     <label for="property_title">@lang('Square Feet')</label>
                                     <div class="single-input">
                                         <input type="number" id="property_title" name="square_feet"
-                                            placeholder="@lang('Property Square Feet')">
+                                            placeholder="@lang('Investment Square Feet')">
                                     </div>
                                 </div>
                             </div>
@@ -170,17 +170,17 @@
                                     <label for="property_title">@lang('Price')</label>
                                     <div class="single-input">
                                         <input type="number" id="property_title" name="price"
-                                            placeholder="@lang('Property Price')" required>
+                                            placeholder="@lang('Investment Price')" required>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="col-lg-12">
                                 <div class="form-group profile mb-20">
-                                    <label for="new_pass">@lang('Property Description')</label>
+                                    <label for="new_pass">@lang('Investment Description')</label>
                                     <div class="single-input">
                                         <textarea class="trumEdit" name="description"
-                                            placeholder="@lang('Property Description')" id="new_pass" cols="30"
+                                            placeholder="@lang('Investment Description')" id="new_pass" cols="30"
                                             rows="10"></textarea>
                                     </div>
                                 </div>
@@ -196,7 +196,7 @@
                             <div class="col-lg-12">
                                 <div class="row form-group profile property-img">
                                     <div class="col-12">
-                                        <label for="proeerty_salce_price">@lang('Property Image')</label>
+                                        <label for="proeerty_salce_price">@lang('Investment Image')</label>
                                     </div>
                                     <div class="col-12 mb-3 ">
                                         <div class="property-listing-wrap">
@@ -225,7 +225,7 @@
             </div>
         </div>
         <div class="dashboard_box pt-0">
-            <h4 class="title mb-25">@lang('Property Aminities')</h4>
+            <h4 class="title mb-25">@lang('Investment Aminities')</h4>
             <div class="row amenitiesField">
                 <div class="col-md-12 data-amenities">
                     <div class="form-group">
@@ -233,7 +233,7 @@
                             <div class="col-md-12">
                                 <div class="add-new-wraper ">
                                     <input name="aminities[]" type="text" required
-                                        placeholder="@lang('Enter Amenities or Property')">
+                                        placeholder="@lang('Enter Amenities or Investment')">
                                     <span class="input-group-btn">
                                         <button class="btn btn--danger btn-lg removeAmenities w-100" type="button">
                                             <i class="fa fa-times"></i>

@@ -5,12 +5,12 @@
          <div class="row">
              <div class="col-xl-12">
                  <div class="breadcrumb_wrap text-center">
-                     <ul class="breadcrumb_page">
+                     <!-- <ul class="breadcrumb_page">
                          <li class="breadcrumb_arrow"><a href="{{route('home')}}">@lang('Home')</a></li>
                          <li>
                              <h5 class="javascript:void(0)">{{ __($pageTitle) }}</h5>
                          </li>
-                     </ul>
+                     </ul> -->
                  </div>
              </div>
          </div>

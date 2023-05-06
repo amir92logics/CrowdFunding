@@ -125,7 +125,7 @@ class SiteController extends Controller {
     }
 
     public function blog() {
-        $pageTitle = 'Blog';
+        $pageTitle = 'News';
         $section = Page::where('tempname', $this->activeTemplate)->where('slug', 'blog')->firstOrFail();
         $blogs = Frontend::where('data_keys', 'blog.element')->orderBy('id', 'desc')->paginate(getPaginate());
         $contacts = Frontend::where('data_keys', 'contact_us.content')->orderBy('id', 'desc')->firstOrFail();
@@ -137,7 +137,7 @@ class SiteController extends Controller {
 
     public function blogDetails($slug, $id) {
         $blog = Frontend::where('id', $id)->where('data_keys', 'blog.element')->firstOrFail();
-        $pageTitle = 'Blog';
+        $pageTitle = 'News';
         $latests = Frontend::where('data_keys', 'blog.element')->orderBy('id', 'desc')->limit(5)->get();
         $contacts = Frontend::where('data_keys', 'contact_us.content')->orderBy('id', 'desc')->firstOrFail();
         return view($this->activeTemplate . 'blog_details', compact('blog', 'latests', 'contacts', 'pageTitle'));
@@ -145,7 +145,7 @@ class SiteController extends Controller {
 
 
     public function plans() {
-        $pageTitle = "Plan";
+        $pageTitle = "Pricing";
         $sections = Page::where('tempname', $this->activeTemplate)->where('slug', 'plan')->firstOrFail();
         $gatewayCurrency = GatewayCurrency::whereHas('method', function ($gate) {
             $gate->where('status', 1);
@@ -199,7 +199,7 @@ class SiteController extends Controller {
 
     public function propertyShow() {
 
-        $pageTitle = 'Property';
+        $pageTitle = 'Investments';
 
         $topProperties = Property::whereHas('featuredPlan', function ($q) {
             $q->where('expire_date' ,'>' , now());
@@ -232,7 +232,7 @@ class SiteController extends Controller {
 
     public function propertySearch(Request $request) {
 
-        $pageTitle = 'Property Search';
+        $pageTitle = 'Investment Search';
         $bathrooms = $request->bathroom;
         $rooms = $request->room;
         $prices = $request->price;

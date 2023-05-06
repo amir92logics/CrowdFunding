@@ -68,14 +68,14 @@
                     <a href="{{route('admin.plan.index')}}" class="nav-link"
                         data-default-url="{{ route('admin.plan.index') }}">
                         <i class="menu-icon las la-gift menu-icon"></i>
-                        <span class="menu-title">@lang('All Plans') </span>
+                        <span class="menu-title">@lang('All Prices') </span>
                     </a>
                 </li>
                 <li class="sidebar-menu-item  {{menuActive('admin.featured.plan.*')}}">
                     <a href="{{route('admin.featured.plan.index')}}" class="nav-link"
                         data-default-url="{{ route('admin.featured.plan.index') }}">
                         <i class="menu-icon las la-gift menu-icon"></i>
-                        <span class="menu-title">@lang('Featured Plans') </span>
+                        <span class="menu-title">@lang('Featured Prices') </span>
                     </a>
                 </li>
 

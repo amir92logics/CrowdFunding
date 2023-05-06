@@ -13,7 +13,7 @@
                             </div>
                             <div class="info">
                                 <p class="type ml-1">{{ __($properties) }}</p>
-                                <p class=" ml-1">@lang('Published Property')</p>
+                                <p class=" ml-1">@lang('Published Investment')</p>
                             </div>
                         </div>
                     </a>
@@ -48,7 +48,7 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 ">
                     <div class="dashboard_item subscrib">
-                        <h4>@lang('Subscribed Plan')</h4>
+                        <h4>@lang('Subscribed Pricing')</h4>
                         <hr>
                         <div class="row gy-4">
                             @foreach($plan as $plan)

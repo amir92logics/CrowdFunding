@@ -37,7 +37,7 @@ $rooms = App\Models\PropertyInfo::groupby('room')
 
                 <div class="banner_content_wrapper">
                     <div class="banner_top_text">
-                        <span class="banner-top-title">{{__($general->site_name)}}</span>
+                        <!-- <span class="banner-top-title">{{__($general->site_name)}}</span> -->
                         <h2 class="animate-charcter banner_title">{{ __($banner->data_values->heading) }}</h2>
                         <p class="banner-des">{{ __($banner->data_values->subheading) }}</p>
 
@@ -52,18 +52,18 @@ $rooms = App\Models\PropertyInfo::groupby('room')
                                     <div class="row align-items-center">
                                         <div class="col-lg-4 col-md-6">
                                             <div class="nice_select_wrapper banner mb-30 style_1">
-                                                <p>@lang('type')</p>
+                                                <!-- <p>@lang('type')</p>
                                                 <select name="type" class="all_select">
                                                     <option value="1">@lang('For Sale')</option>
                                                     <option value="2">@lang('For Rent')</option>
-                                                </select>
+                                                </select> -->
                                             </div>
                                         </div>
                                         <div class="col-lg-4 col-md-6">
                                             <div class="nice_select_wrapper banner mb-30 style_1">
-                                                <p>@lang('Property type')</p>
+                                                <p>@lang('Investment type')</p>
                                                 <select name="property_type" class="all_select">
-                                                    <option value="0" hidden>@lang('Property type')</option>
+                                                    <option value="0" hidden>@lang('Investment type')</option>
                                                     @foreach ($propertyTypes as $item)
                                                     <option value="{{ $item->id }}">{{ __($item->name) }}
                                                     </option>
@@ -73,11 +73,11 @@ $rooms = App\Models\PropertyInfo::groupby('room')
                                         </div>
 
                                         <div class="col-lg-4 col-md-6">
-                                            <div class="advance_search_wrap mb-30">
+                                            <!-- <div class="advance_search_wrap mb-30">
                                                 <p>@lang('Advance Search')</p>
                                                 <span class="advance_btn">@lang('Advance Search')<i
                                                         class="fa-sharp fa-solid fa-angle-down"></i></span>
-                                            </div>
+                                            </div> -->
                                         </div>
                                         <div class="col-lg-12">
                                             <div class="advance_search_wrap mb-25 button">

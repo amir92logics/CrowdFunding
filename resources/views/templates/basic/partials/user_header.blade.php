@@ -5,7 +5,7 @@ $languages = App\Models\Language::all();
 @endphp
 <!--=======-** Header Start **-=======-->
 <header class="header_area header-transparent">
-    <div class="header_top">
+    <!-- <div class="header_top">
         <div class="container">
             <div class="row">
                 <div class="col-xl-6 col-lg-5 col-md-6">
@@ -59,7 +59,7 @@ $languages = App\Models\Language::all();
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <div class="header-main-menu" id="sticky-header">
         <div class="container position-relative">
             <div class="row align-items-center">
@@ -94,9 +94,9 @@ $languages = App\Models\Language::all();
                                     @endif
                                     @endforeach
                                     <li><a href="{{route('properties')}}"
-                                            class="{{ Route::is('properties') ? 'active' : '' }}">@lang('Properties')</a>
+                                            class="{{ Route::is('properties') ? 'active' : '' }}">@lang('Investments')</a>
                                     </li>
-                                    <li><a href="{{route('blog')}}" class='{{ Route::is('blog') ? 'active' : '' }}'>@lang('Blog')</a></li>
+                                    <li><a href="{{route('blog')}}" class='{{ Route::is('blog') ? 'active' : '' }}'>@lang('News')</a></li>
                                     <li><a href="{{route('contact')}}"
                                             class="{{ Route::is('contact') ? 'active' : '' }}">@lang('Contact')</a>
                                     </li>
@@ -106,7 +106,7 @@ $languages = App\Models\Language::all();
                                     <li>
                                         <a href="{{route('user.property.index')}}" class="theme_btn"><span
                                                 class="btn_title"><i class="fa-solid fa-house"></i> @lang('Add
-                                                Property')</span></a>
+                                                Fundings')</span></a>
                                     </li>
                                     @endauth
                                 </ul>

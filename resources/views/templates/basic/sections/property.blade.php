@@ -7,7 +7,6 @@ $subscripProperties = [];
 $topProperties = App\Models\Property::whereHas('featuredPlan', function ($q) {
             $q->where('expire_date' ,'>' , now());
         })->inRandomOrder()->limit(2)->get();
-
 @endphp
 <!--=======-**  Featured Start **-=======-->
 <section class="features_area pt-50 pb-80 md-pt-40 md-pb-50">
@@ -42,19 +41,37 @@ $topProperties = App\Models\Property::whereHas('featuredPlan', function ($q) {
                             @endif
                         </div>
                         <div class="featured_price">{{$general->cur_sym}}
-                            {{showAmount(__(@$item->propertyInfo->price))}} @if($item->type==2)<span> @lang('/
-                                month')</span>@endif </div>
+                        @php
+                                $num = $item->propertyInfo->price;
+                                @endphp
+                                @if ($num >= 1000 && $num <= 999999) 
+                                @php echo  @floor($num / 1000) . ' K' @endphp
+                               
+                                @elseif ($num >= 1000000 && $num <= 999999999) 
+                                @php echo  @floor($num / 1000000) . ' M' @endphp
+                                @elseif ($num >= 1000000000 && $num <=  999999999999 ) 
+                                @php echo  @floor($num / 1000000000) . ' B' @endphp
+                                @elseif ($num >= 1000000000000) 
+                                @php echo  @floor($num / 1000000000000) . ' T' @endphp
+                                @else 
+                                @php echo  @$num @endphp
+                                @endif
+                            <!-- {{showAmount(__(@$item->propertyInfo->price))}}  -->
+                            
+                            <!-- @if($item->type==2)<span> @lang('/
+                                month')</span>@endif  -->
+                            </div>
                     </div>
                     <div class="single_featured__content">
                         <div class="content_top_wrapper mb-10">
                             <div class="tags">
-                                @if($item->type==1)
+                                <!-- @if($item->type==1)
                                 <p class=" mb-2">@lang('Sale')</p>
                                 @else
                                 <p class=" mb-2">@lang('Rent')</p>
-                                @endif
+                                @endif -->
 
-                                <p class=" mb-2">{{__($item->propertyType->name)}}</p>
+                                <!-- <p class=" mb-2">{{__($item->propertyType->name)}}</p> -->
 
                             </div>
 
@@ -67,12 +84,18 @@ $topProperties = App\Models\Property::whereHas('featuredPlan', function ($q) {
 
                         <div class="location_date">
                             <p><i class="fas fa-map-marker-alt fa-xs"></i> {{__($item->location->name)}}, {{__($item->city->name)}}</p>
-                            <p><i class="far fa-clock fa-md"></i> {{diffForHumans($item->created_at) }}</p>
+                            <!-- <p><i class="far fa-clock fa-md"></i> {{diffForHumans($item->created_at) }}</p> -->
                         </div>
                         <h4 class="mb-4 mt-3 text-muted"><a
                                 href="{{route('property.details',['slug' => slug($item->title), 'id' => $item->id])}}">{{__($item->title)}}</a>
                         </h4>
-                        <ul class="featured_cat">
+                        <p class="my-3">
+                                    @php 
+                                    $string = substr($item->propertyInfo->description,0,100).'...';
+                                    echo  @$string ; 
+                                    @endphp
+                                </p>
+                        <!-- <ul class="featured_cat">
                             <li class="featured_bed"><i
                                     class="fa-solid fa-house-user"></i><span>{{__(@$item->propertyInfo->room)}}</span>
                                 @lang('Room')</li>
@@ -82,7 +105,7 @@ $topProperties = App\Models\Property::whereHas('featuredPlan', function ($q) {
                             <li class="featured_m-sqft"><i
                                     class="far fa-square"></i><span>{{__(@$item->propertyInfo->square_feet)}}</span>
                                 @lang('Sqft')</li>
-                        </ul>
+                        </ul> -->
 
                     </div>
                 </div>
@@ -110,19 +133,36 @@ $topProperties = App\Models\Property::whereHas('featuredPlan', function ($q) {
                             @endif
                         </div>
                         <div class="featured_price">{{$general->cur_sym}}
-                            {{showAmount(__(@$item->propertyInfo->price))}} @if($item->type==2)<span> @lang('/
-                                month')</span>@endif </div>
+                        @php
+                                $num = $item->propertyInfo->price;
+                                @endphp
+                                @if ($num >= 1000 && $num <= 999999) 
+                                @php echo  @floor($num / 1000) . ' K' @endphp
+                               
+                                @elseif ($num >= 1000000 && $num <= 999999999) 
+                                @php echo  @floor($num / 1000000) . ' M' @endphp
+                                @elseif ($num >= 1000000000 && $num <=  999999999999 ) 
+                                @php echo  @floor($num / 1000000000) . ' B' @endphp
+                                @elseif ($num >= 1000000000000) 
+                                @php echo  @floor($num / 1000000000000) . ' T' @endphp
+                                @else 
+                                @php echo  @$num @endphp
+                                @endif
+                            <!-- {{showAmount(__(@$item->propertyInfo->price))}}  -->
+                            <!-- @if($item->type==2)<span> @lang('/
+                                month')</span>@endif -->
+                             </div>
                     </div>
                     <div class="single_featured__content">
                         <div class="content_top_wrapper mb-10">
                             <div class="tags">
-                                @if($item->type==1)
+                                <!-- @if($item->type==1)
                                 <p class=" mb-2">@lang('Sale')</p>
                                 @else
                                 <p class=" mb-2">@lang('Rent')</p>
-                                @endif
+                                @endif -->
 
-                                <p class=" mb-2">{{__($item->propertyType->name)}}</p>
+                                <!-- <p class=" mb-2">{{__($item->propertyType->name)}}</p> -->
 
                             </div>
 
@@ -135,12 +175,18 @@ $topProperties = App\Models\Property::whereHas('featuredPlan', function ($q) {
 
                         <div class="location_date">
                             <p><i class="fas fa-map-marker-alt fa-xs"></i> {{__($item->location->name)}}, {{__($item->city->name)}}</p>
-                            <p><i class="far fa-clock fa-md"></i> {{diffForHumans($item->created_at) }}</p>
+                            <!-- <p><i class="far fa-clock fa-md"></i> {{diffForHumans($item->created_at) }}</p> -->
                         </div>
                         <h4 class="mb-4 mt-3 text-muted"><a
                                 href="{{route('property.details',['slug' => slug($item->title), 'id' => $item->id])}}">{{__($item->title)}}</a>
                         </h4>
-                        <ul class="featured_cat">
+                        <p class="my-3">
+                                    @php 
+                                    $string = substr($item->propertyInfo->description,0,100).'...';
+                                    echo  @$string ; 
+                                    @endphp
+                                </p>
+                        <!-- <ul class="featured_cat">
                             <li class="featured_bed"><i
                                     class="fa-solid fa-house-user"></i><span>{{__(@$item->propertyInfo->room)}}</span>
                                 @lang('Room')</li>
@@ -150,7 +196,7 @@ $topProperties = App\Models\Property::whereHas('featuredPlan', function ($q) {
                             <li class="featured_m-sqft"><i
                                     class="far fa-square"></i><span>{{__(@$item->propertyInfo->square_feet)}}</span>
                                 @lang('Sqft')</li>
-                        </ul>
+                        </ul> -->
 
                     </div>
                 </div>

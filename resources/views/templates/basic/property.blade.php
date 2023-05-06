@@ -25,7 +25,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="nice_select_wrapper mb-20 style_1">
+                                <!-- <div class="nice_select_wrapper mb-20 style_1">
                                     <select name="type" class="all_select">
                                         <option value="1">@lang('For Sale')</option>
                                         <option value="2">@lang('For Rent')</option>
@@ -81,7 +81,7 @@
                                         <input type="hidden" name="max" id="max">
                                         <div class="clearfix"></div>
                                     </div>
-                                </div>
+                                </div> -->
 
                                 <div class="widget_btn">
                                     <button class="theme_btn style_1 style_full" type="submit">
@@ -95,7 +95,7 @@
                 </div>
 
 
-                <div class="widget_box mb-30 single_featured">
+                <!-- <div class="widget_box mb-30 single_featured">
                     <div class="widget_box_header">
                         <h4 class="mb-20">@lang('Type Of Property')</h4>
                     </div>
@@ -109,8 +109,8 @@
                         @endforeach
 
                     </ul>
-                </div>
-                <div class="widget_box mb-30 single_featured">
+                </div> -->
+                <!-- <div class="widget_box mb-30 single_featured">
                     <div class="widget_box_header">
                         <h4 class="mb-20">@lang('Contact Information')</h4>
                     </div>
@@ -141,7 +141,7 @@
                             <p><a href="javascript:void(0)">{{ __($contacts->data_values->email_address) }}</a> </p>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </aside>
             <div class="col-xl-8 col-lg-8">
                 <div class="row">
@@ -167,20 +167,37 @@
                                     @endif
                                 </div>
                                 <div class="featured_price">{{ $general->cur_sym }}
-                                    {{ showAmount(__(@$item->propertyInfo->price)) }}<span>
-                                        @if($item->type == 2) @lang('/ month') @endif</span> </div>
+                                @php
+                                $num = $item->propertyInfo->price;
+                                @endphp
+                                @if ($num >= 1000 && $num <= 999999) 
+                                @php echo  @floor($num / 1000) . ' K' @endphp
+                               
+                                @elseif ($num >= 1000000 && $num <= 999999999) 
+                                @php echo  @floor($num / 1000000) . ' M' @endphp
+                                @elseif ($num >= 1000000000 && $num <=  999999999999 ) 
+                                @php echo  @floor($num / 1000000000) . ' B' @endphp
+                                @elseif ($num >= 1000000000000) 
+                                @php echo  @floor($num / 1000000000000) . ' T' @endphp
+                                @else 
+                                @php echo  @$num @endphp
+                                @endif
+                                    <!-- {{ showAmount(__(@$item->propertyInfo->price)) }} -->
+                                    <!-- <span>
+                                        @if($item->type == 2) @lang('/ month') @endif</span>  -->
+                                    </div>
                             </div>
                             <div class="single_featured__content">
                                 <div class="content_top_wrapper mb-10">
                                     <div class="tags">
-                                        @if ($item->type == 1)
+                                        <!-- @if ($item->type == 1)
                                         <p class="mb-2">@lang('Sale')</p>
                                         @else
                                         <p class="mb-2">@lang('Rent')</p>
-                                        @endif
+                                        @endif -->
 
-                                        <p class="mb-2">{{ __($item->propertyType->name)
-                                            }}</p>
+                                        <!-- <p class="mb-2">{{ __($item->propertyType->name)
+                                            }}</p> -->
 
                                     </div>
 
@@ -194,14 +211,20 @@
                                 <div class="location_date">
                                     <p><i class="fas fa-map-marker-alt fa-xs"></i> {{ __($item->location->name) }}, {{ __($item->city->name) }}
                                     </p>
-                                    <p><i class="far fa-clock fa-md"></i> {{ diffForHumans($item->created_at) }}
-                                    </p>
+                                    <!-- <p><i class="far fa-clock fa-md"></i> {{ diffForHumans($item->created_at) }}
+                                    </p> -->
                                 </div>
                                 <h4 class="mb-3 mt-2 text--muted"><a
                                         href="{{ route('property.details',[ slug($item->title), $item->id]) }}">{{
                                         __($item->title) }}</a>
                                 </h4>
-                                <ul class="featured_cat">
+                                <p class="my-3">
+                                    @php 
+                                    $string = substr($item->propertyInfo->description,0,100).'...';
+                                    echo  @$string ; 
+                                    @endphp
+                                </p>
+                                <!-- <ul class="featured_cat">
                                     <li class="featured_bed"><i class="fa-solid fa-house-user"></i><span>{{
                                             __(@$item->propertyInfo->room) }}</span> @lang('Room')
                                     </li>
@@ -211,7 +234,7 @@
                                     <li class="featured_m-sqft"><i class="far fa-square"></i><span>{{
                                             __(@$item->propertyInfo->square_feet) }}</span> @lang('Sqft')
                                     </li>
-                                </ul>
+                                </ul> -->
                             </div>
                         </div>
                     </div>
@@ -238,20 +261,38 @@
                                     @endif
                                 </div>
                                 <div class="featured_price">{{ $general->cur_sym }}
-                                    {{ showAmount(__(@$item->propertyInfo->price)) }}<span>
-                                        @if($item->type == 2) @lang('/ month') @endif</span> </div>
+                                    @php
+                                $num = $item->propertyInfo->price;
+                                @endphp
+                                @if ($num >= 1000 && $num <= 999999) 
+                                @php echo  @floor($num / 1000) . ' K' @endphp
+                               
+                                @elseif ($num >= 1000000 && $num <= 999999999) 
+                                @php echo  @floor($num / 1000000) . ' M' @endphp
+                                @elseif ($num >= 1000000000 && $num <=  999999999999 ) 
+                                @php echo  @floor($num / 1000000000) . ' B' @endphp
+                                @elseif ($num >= 1000000000000) 
+                                @php echo  @floor($num / 1000000000000) . ' T' @endphp
+                                @else 
+                                @php echo  @$num @endphp
+                                @endif
+                                    <!-- {{ showAmount(__(@$item->propertyInfo->price)) }} -->
+                                    
+                                    <!-- <span>
+                                        @if($item->type == 2) @lang('/ month') @endif</span> -->
+                                     </div>
                             </div>
                             <div class="single_featured__content">
                                 <div class="content_top_wrapper mb-10">
                                     <div class="tags">
-                                        @if ($item->type == 1)
+                                        <!-- @if ($item->type == 1)
                                         <p class="mb-2">@lang('Sale')</p>
                                         @else
                                         <p class="mb-2">@lang('Rent')</p>
-                                        @endif
+                                        @endif -->
 
-                                        <p class="mb-2">{{ __($item->propertyType->name)
-                                            }}</p>
+                                        <!-- <p class="mb-2">{{ __($item->propertyType->name)
+                                            }}</p> -->
 
                                     </div>
 
@@ -265,14 +306,23 @@
                                 <div class="location_date">
                                     <p><i class="fas fa-map-marker-alt fa-xs"></i> {{ __($item->location->name) }}, {{ __($item->city->name) }}
                                     </p>
-                                    <p><i class="far fa-clock fa-md"></i> {{ diffForHumans($item->created_at) }}
-                                    </p>
+                                    <!-- <p><i class="far fa-clock fa-md"></i> {{ diffForHumans($item->created_at) }}
+                                    </p> -->
                                 </div>
                                 <h4 class="mb-3 mt-2 text--muted"><a
                                         href="{{ route('property.details',[ slug($item->title), $item->id]) }}">{{
                                         __($item->title) }}</a>
                                 </h4>
-                                <ul class="featured_cat">
+                                <p class="my-3">
+                                    @php 
+                                    $string = substr($item->propertyInfo->description,0,100).'...';
+                                    echo  @$string ; 
+                                    @endphp
+                                </p>
+                                <!-- <p class="my-3">
+                                {!!__($item->propertyInfo->description) !!}
+                                </p> -->
+                                <!-- <ul class="featured_cat">
                                     <li class="featured_bed"><i class="fa-solid fa-house-user"></i><span>{{
                                             __(@$item->propertyInfo->room) }}</span> @lang('Room')
                                     </li>
@@ -282,7 +332,7 @@
                                     <li class="featured_m-sqft"><i class="far fa-square"></i><span>{{
                                             __(@$item->propertyInfo->square_feet) }}</span> @lang('Sqft')
                                     </li>
-                                </ul>
+                                </ul> -->
                             </div>
                         </div>
                     </div>

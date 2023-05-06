@@ -53,16 +53,16 @@ $social_icon = getContent('social_icon.element', false);
                         <h4 class="footer-widget__title">@lang('Others Pages')</h4>
                         <div class="footer-widget__userful-link">
                             <ul>
-                                <li><a href="{{ route('plans') }}" target="_blank">@lang('Plans')</a></li>
-                                <li><a href="{{ route('properties') }}" target="_blank">@lang('Properties')</a></li>
-                                <li><a href="{{ route('blog') }}" target="_blank">@lang('Blog')</a></li>
+                                <li><a href="{{ route('plans') }}" target="_blank">@lang('Pricing')</a></li>
+                                <li><a href="{{ route('properties') }}" target="_blank">@lang('Investments')</a></li>
+                                <li><a href="{{ route('blog') }}" target="_blank">@lang('News')</a></li>
                                 <li><a href="{{ route('contact') }}" target="_blank">@lang('Contact')</a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-3 col-md-6">
-                    <div class="footer-widget mb-30">
+                    <!-- <div class="footer-widget mb-30">
                         <h4 class="footer-widget__title">@lang('Contact Us')</h4>
                         <div class="footer-widget__recent">
                             <div class="footer-widget__location">
@@ -79,7 +79,7 @@ $social_icon = getContent('social_icon.element', false);
                                 </ul>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>

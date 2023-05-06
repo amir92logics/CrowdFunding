@@ -77,7 +77,7 @@
                     <div class="widget_box_header">
                         <h4 class="mb-20">@lang('Support')</h4>
                     </div>
-                    <div class="helping-center">
+                    <!-- <div class="helping-center">
                         <div class="icon">
                             <i class="fa fa-map-marker"></i>
                         </div>
@@ -103,7 +103,7 @@
                             <h4>@lang('Email')</h4>
                             <p><a href="javascript:void(0)">{{__($contacts->data_values->email_address)}}</a> </p>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
 
             </aside>

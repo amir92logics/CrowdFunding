@@ -67,7 +67,7 @@
                     </form>
                 </div>
             </div>
-            <div class="col-xl-5 col-lg-5 col-md-5">
+            <!-- <div class="col-xl-5 col-lg-5 col-md-5">
                 <div class="contact-info mb-30" >
                     <div class="contact-info__addres-wrap mb-30">
                         <div class="single-info mb-30">
@@ -108,7 +108,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
         </div>
     </div>

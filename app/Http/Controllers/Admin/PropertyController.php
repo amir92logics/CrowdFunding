@@ -15,7 +15,7 @@ class PropertyController extends Controller
 {
       public function index(){
 
-        $pageTitle = 'Manage Properties';
+        $pageTitle = 'Manage Fundings';
         $properties = Property::latest()->with('location', 'city','propertyInfo')->paginate(getPaginate(20));
         return view('admin.property.list',compact('properties','pageTitle'));
 
@@ -23,7 +23,7 @@ class PropertyController extends Controller
 
 
       public function create(){
-        $pageTitle = 'Add New Property';
+        $pageTitle = 'Add New Fundings';
         $cities = City::orderBy('name', 'asc')->where('status', 1)->select('id', 'name')->with('location')->get();
         $propertyTypes = PropertyType::where('status', 1)->select('name', 'id')->get();
         return view('admin.property.create',compact('cities','propertyTypes','pageTitle'));
@@ -31,7 +31,7 @@ class PropertyController extends Controller
 
 
       public function propertyEdit($id){
-        $pageTitle = 'Edit Property';
+        $pageTitle = 'Edit Investment';
         $cities = City::orderBy('name', 'asc')->where('status', 1)->select('id', 'name')->with('location')->get();
         $propertyTypes = PropertyType::where('status', 1)->select('name', 'id')->get();
         $property = Property::find($id);

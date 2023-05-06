@@ -55,7 +55,7 @@ $user = auth()->user();
                 </li>
                 <li>
                     <a href="{{ route('user.inquiry.list') }}" class='{{ Route::is('user.inquiry.list') ? 'active' : '' }}'>
-                        <i class="fa-regular fa-message"></i>@lang('Property Queries')
+                        <i class="fa-regular fa-message"></i>@lang('Investment Queries')
                     </a>
                 </li>
                 <li>

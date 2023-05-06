@@ -176,7 +176,7 @@ class UserController extends Controller {
             $notify[] = ['error', 'You do not own this property '];
             return back()->withNotify($notify);
        }else{
-        $pageTitle ="Featured Plans";
+        $pageTitle ="Featured Prices";
         $featuredPlans  = FeaturedPlan::orderBy('created_at','desc')->paginate(getPaginate(12));
         return view($this->activeTemplate .'featuredPlan.list',compact('featuredPlans','property','pageTitle'));
        }
