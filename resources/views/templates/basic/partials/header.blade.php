@@ -85,7 +85,7 @@ $languages = App\Models\Language::all();
                                     App\Models\Page::where('tempname',$activeTemplate)->where('is_default',0)->get();
                                     @endphp
                                     @foreach($pages as $page)
-                                    @if($page->slug != 'home' && $page->slug != 'blog' && $page->slug != 'plan' &&
+                                    @if($page->slug != 'home'  && $page->slug != 'pricing' && $page->slug != 'blog' && $page->slug != 'news' && $page->slug != 'plan' &&
                                     $page->slug != 'contact' && $page->slug != 'listing')
                                     <li><a href="{{route('pages',[$page->slug])}}"
                                             class="{{ Route::is('pages',[$page->slug]) ? 'active' : '' }}"

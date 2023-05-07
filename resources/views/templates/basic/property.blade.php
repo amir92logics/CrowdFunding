@@ -5,17 +5,19 @@
 <section class="features_area pt-20 pb-80 md-pt-20 md-pb-30">
     <div class="container">
 
-        <div class="row flex-wrap-reverse">
-            <aside class="col-xl-4 col-lg-4 col-md-12 car">
+        <div class="row ">
+            <aside class="col-xl-12 col-lg-12 col-md-12 car">
                 <div class="widget_wrap">
                     <div class="widget_box mb-30 single_featured">
-                        <div class="widget_box_header">
+                    <div class="row ">
+                        <div class="widget_box_header col-xl-3 col-lg-3 col-md-12">
                             <h4 class="mb-20">@lang('Advanced Search')</h4>
                         </div>
-                        <div class="_widget_search">
+                        <div class="_widget_search col-xl-9 col-lg-9 col-md-12">
                             <form class="form" action="{{ route('property.search') }}" method="post">
                                 @csrf
-                                <div class="advance_search_input mb-20">
+                                <div class="row ">
+                                <div class="advance_search_input mb-20 col-xl-8 col-lg-8 col-md-12">
                                     <div class="form-group profile mb-15">
 
                                         <div class="single-input">
@@ -83,14 +85,16 @@
                                     </div>
                                 </div> -->
 
-                                <div class="widget_btn">
+                                <div class="widget_btn col-xl-4 col-lg-4 col-md-12">
                                     <button class="theme_btn style_1 style_full" type="submit">
                                         <span class="btn_title">@lang('Search') <i
                                                 class="fa-solid fa-angles-right"></i></span>
                                     </button>
                                 </div>
+                                </div>
                             </form>
                         </div>
+                    </div>
                     </div>
                 </div>
 
@@ -143,12 +147,12 @@
                     </div>
                 </div> -->
             </aside>
-            <div class="col-xl-8 col-lg-8">
+            <div class="col-xl-12 col-lg-12">
                 <div class="row">
 
                     @if($topProperties != null)
                     @foreach ($topProperties as $item)
-                    <div class="col-xl-6 col-lg-6 col-md-6">
+                    <div class="col-xl-3 col-lg-3 col-md-3">
                         <div class="single_featured top_property mb-30">
                             <div class="single_featured__img">
                                 <h6 class="propery-top-badge">@lang('Featured Ad')</h6>
@@ -242,7 +246,7 @@
                     @else
                     @endif
                     @forelse ($properties as $item)
-                    <div class="col-xl-6 col-lg-6 col-md-6">
+                    <div class="col-xl-3 col-lg-3 col-md-3">
                         <div class="single_featured mb-30">
                             <div class="single_featured__img">
 

@@ -30,8 +30,8 @@ Route::controller('SiteController')->group(function () {
     Route::get('/cookie/accept', 'cookieAccept')->name('cookie.accept');
 
     // blog
-    Route::get('blog', 'blog')->name('blog');
-    Route::get('blog/{slug}/{id}', 'blogDetails')->name('blog.details');
+    Route::get('news', 'blog')->name('blog');
+    Route::get('news/{slug}/{id}', 'blogDetails')->name('blog.details');
 
     Route::get('policy/{slug}/{id}', 'policyPages')->name('policy.pages');
 
@@ -46,7 +46,7 @@ Route::controller('SiteController')->group(function () {
 
 
     // plan
-    Route::get('plans', 'plans')->name('plans');
+    Route::get('pricing', 'plans')->name('plans');
 
     // subscriber
     Route::post('/subscribe', 'subscribe')->name('subscribe');

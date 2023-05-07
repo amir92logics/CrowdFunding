@@ -126,7 +126,7 @@ class SiteController extends Controller {
 
     public function blog() {
         $pageTitle = 'News';
-        $section = Page::where('tempname', $this->activeTemplate)->where('slug', 'blog')->firstOrFail();
+        $section = Page::where('tempname', $this->activeTemplate)->where('slug', 'news')->firstOrFail();
         $blogs = Frontend::where('data_keys', 'blog.element')->orderBy('id', 'desc')->paginate(getPaginate());
         $contacts = Frontend::where('data_keys', 'contact_us.content')->orderBy('id', 'desc')->firstOrFail();
         $latests = Frontend::where('data_keys', 'blog.element')->orderBy('id', 'desc')->limit(5)->get();
@@ -146,7 +146,7 @@ class SiteController extends Controller {
 
     public function plans() {
         $pageTitle = "Pricing";
-        $sections = Page::where('tempname', $this->activeTemplate)->where('slug', 'plan')->firstOrFail();
+        $sections = Page::where('tempname', $this->activeTemplate)->where('slug', 'pricing')->firstOrFail();
         $gatewayCurrency = GatewayCurrency::whereHas('method', function ($gate) {
             $gate->where('status', 1);
         })->with('method')->orderby('method_code')->get();
