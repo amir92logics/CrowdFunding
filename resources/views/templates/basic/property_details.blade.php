@@ -158,12 +158,6 @@
                                 <div class="single_top_wrap__title_wrap">
                                     <div class="listing_title">
                                         <h4>{{__($properties->title)}}
-                                            <!-- @if($properties->type==1)
-                                            <span class="mrg-l-5 category-tag">@lang('For Sale')</span>
-                                            @else
-                                            <span class="mrg-l-5 category-tag">@lang('For Rent')</span>
-                                            @endif -->
-
                                         </h4>
                                         <div class="mt-0">
                                                 <p><i class="fa fa-map-marker pr-2 ti-location-pin mrg-r-5"></i>
@@ -190,11 +184,7 @@
                                 @else 
                                 @php echo  @$num @endphp
                                 @endif
-                                                <!-- {{showAmount(__(@$properties->propertyInfo->price))}} -->
                                             </h4>
-                                            <!-- <div class="mt-0">
-                                                    <p>{{__(@$properties->propertyInfo->square_feet)}} @lang('sqft')</p>
-                                            </div> -->
                                         </div>
                                     </div>
                                 </div>
@@ -242,9 +232,6 @@
 
 <div class="property-details-tabs-wrap">
     <ul class="nav nav-tabs" id="myTab" role="tablist">
-    <!-- <li class="nav-item" role="presentation">
-          <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">@lang('Details')</button>
-        </li> -->
     <li class="nav-item" role="presentation">
           <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">@lang('Business Pitch')</button>
         </li>
@@ -264,10 +251,6 @@
           <button class="nav-link" id="year-tab" data-bs-toggle="tab" data-bs-target="#year" type="button" role="year" aria-controls="home" aria-selected="true">@lang('Year Founded')</button>
         </li>
        
-<!-- 
-        <li class="nav-item" role="presentation">
-          <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">@lang('Floor Plan')</button>
-        </li> -->
         <li class="nav-item" role="presentation">
           <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">@lang('Video')</button>
         </li>
@@ -282,7 +265,7 @@
                     <h4 class="mb-25">Business Pitch</h4>
                     <div class="single homes-content details mb-30">
                     <p class="my-3">
-                    @php echo @$properties->propertyInfo->description ; @endphp
+                    @php echo @$properties->propertyInfo->business_pitch ; @endphp
                     </p>
                         
                     </div>
@@ -295,7 +278,7 @@
                     <h4 class="mb-25">Market Projection</h4>
                     <div class="single homes-content details mb-30">
                     <p class="my-3">
-                    @php echo @$properties->propertyInfo->description ; @endphp
+                    @php echo @$properties->propertyInfo->market_projection ; @endphp
                     </p>
                         
                     </div>
@@ -308,7 +291,7 @@
                     <h4 class="mb-25">Communication Channel</h4>
                     <div class="single homes-content details mb-30">
                     <p class="my-3">
-                    @php echo @$properties->propertyInfo->description ; @endphp
+                    @php echo @$properties->propertyInfo->communication_channel ; @endphp
                     </p>
                         
                     </div>
@@ -321,7 +304,7 @@
                     <h4 class="mb-25">About & Industry</h4>
                     <div class="single homes-content details mb-30">
                     <p class="my-3">
-                    @php echo @$properties->propertyInfo->description ; @endphp
+                    @php echo @$properties->propertyInfo->about_history ; @endphp
                     </p>
                         
                     </div>
@@ -334,7 +317,7 @@
                     <h4 class="mb-25">Year Founded</h4>
                     <div class="single homes-content details mb-30">
                     <p class="my-3">
-                    @php echo @$properties->propertyInfo->description ; @endphp
+                    @php echo @$properties->propertyInfo->year_founded ; @endphp
                     </p>
                         
                     </div>
@@ -348,7 +331,7 @@
                     <h4 class="mb-25">Team</h4>
                     <div class="single homes-content details mb-30">
                     <p class="my-3">
-                    @php echo @$properties->propertyInfo->description ; @endphp
+                    @php echo @$properties->propertyInfo->team ; @endphp
                     </p>
                         
                     </div>
@@ -455,20 +438,10 @@
                                 @else 
                                 @php echo  @$num @endphp
                                 @endif
-                                    <!-- {{showAmount(__(@$item->propertyInfo->price))}} -->
-                                    <!-- <span> @lang('/ month')</span>  -->
                                 </div>
                             </div>
                             <div class="single_featured__content">
                                 <div class="content_top_wrapper mb-10">
-                                    <div class="tags">
-                                        <!-- @if($item->type==1)
-                                        <p class="mb-2">@lang('Sale')</p>
-                                        @else
-                                        <p class="mb-2">@lang('Rent')</p>
-                                        @endif-->
-                                        <!-- <p class="mb-2">{{__($item->propertyType->name)}}</p>  -->
-                                    </div>
 
                                     <div class="heart">
                                         <a href="{{route('user.property.addwishlist',$item->id)}}">
@@ -493,17 +466,6 @@
                                     echo  @$string ; 
                                     @endphp
                                 </p>
-                                <!-- <ul class="featured_cat">
-                                    <li class="featured_bed"><i class="fa-solid fa-house-user"></i><span>{{
-                                            __(@$item->propertyInfo->room) }}</span> @lang('Room')
-                                    </li>
-                                    <li class="featured_bath"><i class="fas fa-bath"></i><span>{{
-                                            __(@$item->propertyInfo->bathroom) }}</span> @lang('Bath')
-                                    </li>
-                                    <li class="featured_m-sqft"><i class="far fa-square"></i><span>{{
-                                            __(@$item->propertyInfo->square_feet) }}</span> @lang('Sqft')
-                                    </li>
-                                </ul> -->
                             </div>
                         </div>
                     </div>

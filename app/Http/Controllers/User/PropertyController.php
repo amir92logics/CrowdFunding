@@ -9,6 +9,8 @@ use App\Models\Frontend;
 use App\Models\Property;
 use App\Models\PropertyInfo;
 use App\Models\PropertyType;
+use App\Models\EntityType;
+use App\Models\InvestmentType;
 use Illuminate\Http\Request;
 use App\Models\PlanSubscribe;
 use App\Models\PropertyImage;
@@ -22,8 +24,9 @@ class PropertyController extends Controller {
         $pageTitle = "Add new Funding";
         $cities = City::orderBy('name', 'asc')->where('status', 1)->select('id', 'name')->with('location')->get();
         $propertyTypes = PropertyType::where('status', 1)->select('name', 'id')->get();
-
-        return view($this->activeTemplate . 'property.create', compact('pageTitle', 'cities', 'propertyTypes'));
+        $entityTypes = EntityType::where('status', 1)->select('name', 'id')->get();
+        $investmentTypes = InvestmentType::where('status', 1)->select('name', 'id')->get();
+        return view($this->activeTemplate . 'property.create', compact('pageTitle', 'cities', 'propertyTypes', 'entityTypes', 'investmentTypes'));
     }
 
     public function listProperty() {
@@ -34,16 +37,29 @@ class PropertyController extends Controller {
     }
 
     public function store(Request $request) {
+        // $request->validate([
+        //     'title' => 'required|max:255',
+        //     'property_type' => 'required|exists:property_types,id',
+        //     'city' => 'required|exists:cities,id',
+        //     'location' => 'required|exists:locations,id',
+        //     'email' => 'nullable|email|max:60',
+        //     'phone' => 'nullable|max:40',
+        //     'aminities.*' => 'required',
+        //     'type' => 'required|in:1,2',
+        //     'floor_plan' => ['image', new FileTypeValidate(['jpg', 'jpeg', 'png'])],
+        //     'images.*' => ['required', 'image', new FileTypeValidate(['jpg', 'jpeg', 'png'])],
+        // ]);
+
         $request->validate([
-            'title' => 'required|max:255',
-            'property_type' => 'required|exists:property_types,id',
+            'investment_title' => 'required|max:255',
+            'entity_type' => 'required|exists:entity_types,id',
+            'investment_type' => 'required|exists:investment_types,id',
             'city' => 'required|exists:cities,id',
             'location' => 'required|exists:locations,id',
             'email' => 'nullable|email|max:60',
             'phone' => 'nullable|max:40',
-            'aminities.*' => 'required',
-            'type' => 'required|in:1,2',
-            'floor_plan' => ['image', new FileTypeValidate(['jpg', 'jpeg', 'png'])],
+            'numner_of_employees' => 'nullable',
+            'market_projection' => ['image', new FileTypeValidate(['jpg', 'jpeg', 'png'])],
             'images.*' => ['required', 'image', new FileTypeValidate(['jpg', 'jpeg', 'png'])],
         ]);
 
@@ -65,42 +81,75 @@ class PropertyController extends Controller {
         }
 
 
+        // $property = new Property();
+        // $property->title = $request->title;
+        // $property->user_id = $user->id;
+        // $property->property_type = $request->property_type;
+        // $property->city_id = $request->city;
+        // $property->location_id = $request->location;
+        // $property->video_link = $request->video_link;
+        // $property->email = $request->email;
+        // $property->phone = $request->phone;
+        // $property->type = $request->type;
+        // $property->status = 1;
+        // $property->save();
+
         $property = new Property();
-        $property->title = $request->title;
+        $property->title = $request->investment_title;
+        $property->company_name = $request->company_name;
         $property->user_id = $user->id;
-        $property->property_type = $request->property_type;
+        $property->entity_type = $request->entity_type;
+        $property->investment_type = $request->investment_type;
         $property->city_id = $request->city;
         $property->location_id = $request->location;
         $property->video_link = $request->video_link;
         $property->email = $request->email;
         $property->phone = $request->phone;
-        $property->type = $request->type;
+        $property->employees = $request->numner_of_employees;
         $property->status = 1;
+        // dd('dfsdfsd');
         $property->save();
 
 
         $purifier = new \HTMLPurifier();
 
+        // $propertyInfo = new PropertyInfo();
+        // $propertyInfo->property_id = $property->id;
+        // $propertyInfo->room = $request->room;
+        // $propertyInfo->kitchen = $request->kitchen;
+        // $propertyInfo->bathroom = $request->bathroom;
+        // $propertyInfo->unit = $request->unit;
+        // $propertyInfo->floor = $request->floor;
+        // $propertyInfo->square_feet = $request->square_feet;
+        // $propertyInfo->price = $request->price;
+        // $propertyInfo->latitude = $request->latitude;
+        // $propertyInfo->longitude = $request->longitude;
+        // $propertyInfo->description = $purifier->purify($request->description);
+
         $propertyInfo = new PropertyInfo();
         $propertyInfo->property_id = $property->id;
-        $propertyInfo->room = $request->room;
-        $propertyInfo->kitchen = $request->kitchen;
-        $propertyInfo->bathroom = $request->bathroom;
-        $propertyInfo->unit = $request->unit;
-        $propertyInfo->floor = $request->floor;
-        $propertyInfo->square_feet = $request->square_feet;
-        $propertyInfo->price = $request->price;
-        $propertyInfo->latitude = $request->latitude;
-        $propertyInfo->longitude = $request->longitude;
+        $propertyInfo->about_history = $request->about_history;
+        $propertyInfo->business_pitch = $request->business_pitch;
+        $propertyInfo->communication_channel = $request->communication_channel;
+        $propertyInfo->team = $request->team;
+        $propertyInfo->year_founded = $request->year_founded;
         $propertyInfo->description = $purifier->purify($request->description);
+        $propertyInfo->price = $request->price;
 
-        if($request->aminities){
-            $propertyInfo->aminity = json_encode($request->aminities);
-        }
 
-        if($request->hasFile('floor_plan')){
-            $propertyInfo->floor_plan = fileUploader($request->floor_plan, getFilePath('property'));
-        }
+
+        // if($request->aminities){
+        //     $propertyInfo->aminity = json_encode($request->aminities);
+        // }
+
+        // if($request->hasFile('floor_plan')){
+        //     $propertyInfo->floor_plan = fileUploader($request->floor_plan, getFilePath('property'));
+        // }
+        // if($request->hasFile('market_projection')){
+        //     // dd('sdsd');
+        //     $propertyInfo->market_projection = fileUploader($request->market_projection, getFilePath('property'));
+        // }
+
 
         $propertyInfo->save();
 

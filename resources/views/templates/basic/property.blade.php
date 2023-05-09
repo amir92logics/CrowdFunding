@@ -288,17 +288,7 @@
                             </div>
                             <div class="single_featured__content">
                                 <div class="content_top_wrapper mb-10">
-                                    <div class="tags">
-                                        <!-- @if ($item->type == 1)
-                                        <p class="mb-2">@lang('Sale')</p>
-                                        @else
-                                        <p class="mb-2">@lang('Rent')</p>
-                                        @endif -->
-
-                                        <!-- <p class="mb-2">{{ __($item->propertyType->name)
-                                            }}</p> -->
-
-                                    </div>
+                                
 
                                     <div class="heart">
                                         <a class="addWishlist" href="{{route('user.property.addwishlist',$item->id)}}">

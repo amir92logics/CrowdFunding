@@ -12,37 +12,46 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="form-group profile mb-15">
-                                    <label for="property_title">@lang('Investment Title')</label>
+                                    <label for="investment_title">@lang('Investment Title')</label>
                                     <div class="single-input">
-                                        <input type="text" id="property_title" name="title"
+                                        <input type="text" id="investment_title" name="investment_title"
                                             placeholder="@lang('Investment Title')" required>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group profile mb-15">
-                                    <label for="property_title">@lang('Phone')</label>
+                                    <label for="company_name">@lang('Legal Company Name')</label>
                                     <div class="single-input">
-                                        <input type="number" id="property_title" name="phone"
-                                            placeholder="@lang('Enter Your Phone')" required>
+                                        <input type="text" id="company_name" name="company_name"
+                                            placeholder="@lang('Legal Company Name')" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group profile mb-15">
+                                    <label for="phone">@lang('Phone')</label>
+                                    <div class="single-input">
+                                        <input type="number" id="phone" name="phone"
+                                            placeholder="@lang('Enter Your Phone')">
                                     </div>
                                 </div>
                             </div>
 
                             <div class="col-lg-6">
                                 <div class="form-group profile mb-15">
-                                    <label for="property_title">@lang('Email')</label>
+                                    <label for="email">@lang('Email')</label>
                                     <div class="single-input">
-                                        <input type="text" id="property_title" name="email"
-                                            placeholder="@lang('Enter Your Email')" required>
+                                        <input type="text" id="email" name="email"
+                                            placeholder="@lang('Enter Your Email')">
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group profile mb-15">
-                                    <label for="property_title">@lang('Video link')</label>
+                                    <label for="video_link">@lang('Video link')</label>
                                     <div class="single-input">
-                                        <input type="text" id="property_title" name="video_link"
+                                        <input type="text" id="video_link" name="video_link"
                                             placeholder="@lang('Enter Your video link')">
                                     </div>
                                 </div>
@@ -50,15 +59,27 @@
                             <div class="col-lg-6">
                                 <div class="nice_select_wrapper mb-15 style_1">
                                     <p>@lang('Investment type')</p>
-                                    <select name="property_type" class="all_select">
-                                        @foreach($propertyTypes as $propertyType)
-                                        <option value="{{$propertyType->id}}">{{__($propertyType->name)}}</option>
+                                    <select name="investment_type" class="all_select">
+                                        @foreach($investmentTypes as $investmentType)
+                                        <option value="{{$investmentType->id}}">{{__($investmentType->name)}}</option>
                                         @endforeach
 
                                     </select>
                                 </div>
                             </div>
 
+                            <div class="col-lg-6">
+                                <div class="nice_select_wrapper mb-15 style_1">
+                                    <p>@lang('Entity Type')</p>
+                                    <select name="entity_type" id="entity_type" class="all_select" required>
+                                        <option value="" selected="" disabled="">@lang('Select One')</option>
+                                        @foreach($entityTypes as $entityType)
+                                        <option value="{{$entityType->id}}">
+                                            {{__($entityType->name)}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
                             <div class="col-lg-6">
                                 <div class="nice_select_wrapper mb-15 style_1">
                                     <p>@lang('City')</p>
@@ -82,7 +103,7 @@
                             </div>
 
 
-                            <div class="col-lg-6">
+                            <!-- <div class="col-lg-6">
                                 <div class="nice_select_wrapper mb-15 style_1">
                                     <p>@lang('Investment Purpose')</p>
                                     <select name="type" class="all_select">
@@ -90,10 +111,10 @@
                                         <option value="2">@lang('For Sale')</option>
                                     </select>
                                 </div>
-                            </div>
+                            </div> -->
 
 
-                            <div class="col-lg-6">
+                            <!-- <div class="col-lg-6">
                                 <div class="form-group profile mb-15">
                                     <label for="property_title">@lang('Room')</label>
                                     <div class="single-input">
@@ -101,8 +122,8 @@
                                             placeholder="@lang('Investment Room')">
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-6">
+                            </div> -->
+                            <!-- <div class="col-lg-6">
                                 <div class="form-group profile mb-15">
                                     <label for="property_title">@lang('Kitchen')</label>
                                     <div class="single-input">
@@ -110,8 +131,8 @@
                                             placeholder="@lang('Investment Kitchen')">
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-6">
+                            </div> -->
+                            <!-- <div class="col-lg-6">
                                 <div class="form-group profile mb-15">
                                     <label for="property_title">@lang('Bathroom')</label>
                                     <div class="single-input">
@@ -119,8 +140,8 @@
                                             placeholder="@lang('Investment Bathroom')">
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-6">
+                            </div> -->
+                            <!-- <div class="col-lg-6">
                                 <div class="form-group profile mb-15">
                                     <label for="property_title">@lang('Unit')</label>
                                     <div class="single-input">
@@ -128,8 +149,8 @@
                                             placeholder="@lang('Investment Unit')">
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-6">
+                            </div> -->
+                            <!-- <div class="col-lg-6">
                                 <div class="form-group profile mb-15">
                                     <label for="property_title">@lang('Floor')</label>
                                     <div class="single-input">
@@ -137,8 +158,8 @@
                                             placeholder="@lang('Investment Floor')">
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-6">
+                            </div> -->
+                            <!-- <div class="col-lg-6">
                                 <div class="form-group profile mb-15">
                                     <label for="property_title">@lang('Square Feet')</label>
                                     <div class="single-input">
@@ -146,22 +167,58 @@
                                             placeholder="@lang('Investment Square Feet')">
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="col-lg-6">
                                 <div class="form-group profile mb-15">
-                                    <label for="property_title">@lang('Latitude')</label>
+                                    <label for="business_pitch">@lang('Business Pitch')</label>
                                     <div class="single-input">
-                                        <input type="text" id="property_title" name="latitude"
-                                            placeholder="@lang('Latitude')">
+                                        <input type="text" id="business_pitch" name="business_pitch"
+                                            placeholder="@lang('Business Pitch')">
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group profile mb-15">
-                                    <label for="property_title">@lang('Longitude')</label>
+                                    <label for="about_history">@lang('About & History')</label>
                                     <div class="single-input">
-                                        <input type="text" id="property_title" name="longitude"
-                                            placeholder="@lang('Longitude')">
+                                        <input type="text" id="about_history" name="about_history"
+                                            placeholder="@lang('About & History')">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group profile mb-15">
+                                    <label for="communication_channel">@lang('Communication Channel')</label>
+                                    <div class="single-input">
+                                        <input type="text" id="communication_channel" name="communication_channel"
+                                            placeholder="@lang('Communication Channel')">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group profile mb-15">
+                                    <label for="team">@lang('Team')</label>
+                                    <div class="single-input">
+                                        <input type="text" id="team" name="team"
+                                            placeholder="@lang('Team')">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group profile mb-15">
+                                    <label for="year_founded">@lang('Year Founded')</label>
+                                    <div class="single-input">
+                                        <input type="date" id="year_founded" name="year_founded"
+                                            placeholder="@lang('Year Founded')">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group profile mb-15">
+                                    <label for="numner_of_employees">@lang('Numner Of Employees')</label>
+                                    <div class="single-input">
+                                        <input type="number" id="numner_of_employees" name="numner_of_employees"
+                                            placeholder="@lang('Numner Of Employees')">
                                     </div>
                                 </div>
                             </div>
@@ -187,9 +244,9 @@
                             </div>
                             <div class="col-lg-12">
                                 <div class="form-group profile mb-15">
-                                    <label>@lang('Floor Plan')</label>
+                                    <label>@lang('Market Projection')</label>
                                     <div class="single-input">
-                                        <input type="file" name="floor_plan" >
+                                        <input type="file" name="market_projection" >
                                     </div>
                                 </div>
                             </div>
@@ -224,7 +281,7 @@
                 </div>
             </div>
         </div>
-        <div class="dashboard_box pt-0">
+        <!-- <div class="dashboard_box pt-0">
             <h4 class="title mb-25">@lang('Investment Aminities')</h4>
             <div class="row amenitiesField">
                 <div class="col-md-12 data-amenities">
@@ -253,7 +310,7 @@
                 </div>
             </div>
 
-        </div>
+        </div> -->
 
         <div class="dashboard_box">
             <div class="col-lg-12">

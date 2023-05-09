@@ -64,16 +64,6 @@ $topProperties = App\Models\Property::whereHas('featuredPlan', function ($q) {
                     </div>
                     <div class="single_featured__content">
                         <div class="content_top_wrapper mb-10">
-                            <div class="tags">
-                                <!-- @if($item->type==1)
-                                <p class=" mb-2">@lang('Sale')</p>
-                                @else
-                                <p class=" mb-2">@lang('Rent')</p>
-                                @endif -->
-
-                                <!-- <p class=" mb-2">{{__($item->propertyType->name)}}</p> -->
-
-                            </div>
 
                             <div class="heart">
                                 <a href="{{route('user.property.addwishlist',$item->id)}}">
@@ -95,17 +85,6 @@ $topProperties = App\Models\Property::whereHas('featuredPlan', function ($q) {
                                     echo  @$string ; 
                                     @endphp
                                 </p>
-                        <!-- <ul class="featured_cat">
-                            <li class="featured_bed"><i
-                                    class="fa-solid fa-house-user"></i><span>{{__(@$item->propertyInfo->room)}}</span>
-                                @lang('Room')</li>
-                            <li class="featured_bath"><i
-                                    class="fas fa-bath"></i><span>{{__(@$item->propertyInfo->bathroom)}}</span>
-                                @lang('Bath')</li>
-                            <li class="featured_m-sqft"><i
-                                    class="far fa-square"></i><span>{{__(@$item->propertyInfo->square_feet)}}</span>
-                                @lang('Sqft')</li>
-                        </ul> -->
 
                     </div>
                 </div>
@@ -155,16 +134,6 @@ $topProperties = App\Models\Property::whereHas('featuredPlan', function ($q) {
                     </div>
                     <div class="single_featured__content">
                         <div class="content_top_wrapper mb-10">
-                            <div class="tags">
-                                <!-- @if($item->type==1)
-                                <p class=" mb-2">@lang('Sale')</p>
-                                @else
-                                <p class=" mb-2">@lang('Rent')</p>
-                                @endif -->
-
-                                <!-- <p class=" mb-2">{{__($item->propertyType->name)}}</p> -->
-
-                            </div>
 
                             <div class="heart">
                                 <a href="{{route('user.property.addwishlist',$item->id)}}">
@@ -186,17 +155,6 @@ $topProperties = App\Models\Property::whereHas('featuredPlan', function ($q) {
                                     echo  @$string ; 
                                     @endphp
                                 </p>
-                        <!-- <ul class="featured_cat">
-                            <li class="featured_bed"><i
-                                    class="fa-solid fa-house-user"></i><span>{{__(@$item->propertyInfo->room)}}</span>
-                                @lang('Room')</li>
-                            <li class="featured_bath"><i
-                                    class="fas fa-bath"></i><span>{{__(@$item->propertyInfo->bathroom)}}</span>
-                                @lang('Bath')</li>
-                            <li class="featured_m-sqft"><i
-                                    class="far fa-square"></i><span>{{__(@$item->propertyInfo->square_feet)}}</span>
-                                @lang('Sqft')</li>
-                        </ul> -->
 
                     </div>
                 </div>
@@ -206,3 +164,4 @@ $topProperties = App\Models\Property::whereHas('featuredPlan', function ($q) {
     </div>
 </section>
 <!--=======-**  Featured End **-=======-->
+;
